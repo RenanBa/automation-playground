@@ -19,3 +19,4 @@ package-lock.json
 Thumbs.db
 .idea/
 .vscode/
+API-test-automation-with-TypeScript/reports/*
