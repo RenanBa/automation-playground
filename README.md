@@ -1,7 +1,7 @@
 # Overview:
-This is to demonstrate a Full API Test Suite skill.
+This is to demonstrate proficiency in Full API Test Suite skills.
 
-I'm using: Jest / Supertest / Playwright API testing
+I'm using: Jest / Supertest / Playwright API testing / TypeScript
 
 This will have CI integration (GitHub Actions or Jenkins)
 
