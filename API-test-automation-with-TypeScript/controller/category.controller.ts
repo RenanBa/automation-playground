@@ -15,12 +15,15 @@ class CategoryController {
     getCategoryById(id: string) {
         return request.get('/categories/' + id)
     }
-    deleteCategoryById(id: string) {
-        return request.delete('/categories/' + id)
+    deleteCategoryById(id: string, token: string) {
+        return request
+            .delete('/categories/' + id)
+            .set('Authorization', 'Bearer ' + token)
     }
-    putCategoryById(id: string, payload: {[key: string]: string}) {
+    putCategoryById(id: string, payload: {[key: string]: string}, token: string) {
         return request
             .put('/categories/' + id)
+            .set('Authorization', 'Bearer ' + token)
             .send(payload)
     }
 }
