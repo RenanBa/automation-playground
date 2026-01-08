@@ -6,9 +6,10 @@ class CategoryController {
     getCategories() {
         return request.get('/categories')
     }
-    postCategory(payload: {[key: string]: string | number}) {
+    postCategory(payload: {[key: string]: string | number}, token: string) {
         return request
             .post('/categories')
+            .set('Authorization', 'Bearer ' + token)
             .send(payload)
     }
     getCategoryById(id: string) {
