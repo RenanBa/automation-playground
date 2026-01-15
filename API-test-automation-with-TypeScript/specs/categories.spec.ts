@@ -1,16 +1,15 @@
-import authenticationController from "../controller/authentication.controller"
 import categoryController from "../controller/category.controller"
 import config from '../config/base.config'
+import TestHelper from "../utils/helper"
 
 describe('Categories tests', () => {
     const categoryCtrl = categoryController
-    const auth = authenticationController
+    const testHelper = TestHelper
+
     let token: string
 
     beforeAll(async () => {
-        const beareToken = await auth.login({ 'email': config.email, 'password': config.password })
-        token = beareToken.body.token
-        console.log(token)
+        token = await testHelper.login(config.email, config.password)
     })
 
     it ('GET /categories', async () => {
@@ -27,11 +26,7 @@ describe('Categories tests', () => {
         })
 
         it ('POST /categories - success', async () => {
-            const name = "Test Category " + Math.floor(Math.random() * 100000)
-            const playload = {
-                'name': name
-            }
-            const res = await categoryCtrl.postCategory(playload, token)
+            const res = await testHelper.createCategory(token)
             console.log(res.body)
             expect(res.status).toBe(200)
             categoryToDelete = res.body
@@ -41,12 +36,8 @@ describe('Categories tests', () => {
     describe('Update category', () => {
         let newCategory: any
         beforeAll(async () => {
-            const name = "Test Category " + Math.floor(Math.random() * 100000)
-            const playload = {
-                'name': name
-            }
-            const newCat = await categoryCtrl.postCategory(playload, token)
-            newCategory = newCat.body
+            const res = await testHelper.createCategory(token)
+            newCategory = res.body
         })
 
         afterAll(async () => {
@@ -67,12 +58,8 @@ describe('Categories tests', () => {
     describe('Delete category', () => {
         let categoryToDelete: any
         beforeAll(async () => {
-            const name = "Test Category " + Math.floor(Math.random() * 100000)
-            const playload = {
-                'name': name
-            }
-            const newCat = await categoryCtrl.postCategory(playload, token)
-            categoryToDelete = newCat.body
+            const res = await testHelper.createCategory(token)
+            categoryToDelete = res.body
         })
 
         afterAll(async () => {
