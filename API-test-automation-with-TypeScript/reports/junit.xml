@@ -1,13 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="4" failures="0" errors="0" time="10.872">
-  <testsuite name="Categories tests" errors="0" failures="0" skipped="0" timestamp="2026-01-17T18:01:31" time="10.568" tests="4">
-    <testcase classname="Categories tests GET /categories" name="Categories tests GET /categories" time="1.505">
+<testsuites name="jest tests" tests="20" failures="1" errors="0" time="24.432">
+  <testsuite name="POC Tests" errors="0" failures="0" skipped="0" timestamp="2026-01-17T18:19:44" time="13.308" tests="1">
+    <testcase classname="POC Tests GET /posts" name="POC Tests GET /posts" time="0.262">
     </testcase>
-    <testcase classname="Categories tests Create category POST /categories - success" name="Categories tests Create category POST /categories - success" time="0.542">
+  </testsuite>
+  <testsuite name="File Upload tests" errors="0" failures="0" skipped="0" timestamp="2026-01-17T18:19:57" time="3.032" tests="2">
+    <testcase classname="File Upload tests POST /upload/single" name="File Upload tests POST /upload/single" time="1.433">
     </testcase>
-    <testcase classname="Categories tests Update category PUT /categories/:id - success" name="Categories tests Update category PUT /categories/:id - success" time="0.537">
+    <testcase classname="File Upload tests POST /upload/multiple" name="File Upload tests POST /upload/multiple" time="0.697">
     </testcase>
-    <testcase classname="Categories tests Delete category DELETE /categories/:id - success" name="Categories tests Delete category DELETE /categories/:id - success" time="0.529">
+  </testsuite>
+  <testsuite name="Categories tests" errors="0" failures="0" skipped="0" timestamp="2026-01-17T18:19:44" time="18.599" tests="4">
+    <testcase classname="Categories tests GET /categories" name="Categories tests GET /categories" time="1.497">
+    </testcase>
+    <testcase classname="Categories tests Create category POST /categories - success" name="Categories tests Create category POST /categories - success" time="0.57">
+    </testcase>
+    <testcase classname="Categories tests Update category PUT /categories/:id - success" name="Categories tests Update category PUT /categories/:id - success" time="0.681">
+    </testcase>
+    <testcase classname="Categories tests Delete category DELETE /categories/:id - success" name="Categories tests Delete category DELETE /categories/:id - success" time="0.54">
+    </testcase>
+  </testsuite>
+  <testsuite name="Brands tests" errors="0" failures="1" skipped="0" timestamp="2026-01-17T18:19:44" time="22.899" tests="13">
+    <testcase classname="Brands tests Fetch Brands GET /brands" name="Brands tests Fetch Brands GET /brands" time="2.667">
+    </testcase>
+    <testcase classname="Brands tests Create Brand POST /brand/" name="Brands tests Create Brand POST /brand/" time="0.436">
+    </testcase>
+    <testcase classname="Brands tests Fetch Individual Brand GET /brand/:id" name="Brands tests Fetch Individual Brand GET /brand/:id" time="0.446">
+    </testcase>
+    <testcase classname="Brands tests Schema validations Schema Verification - Name is mandatory field" name="Brands tests Schema validations Schema Verification - Name is mandatory field" time="0.367">
+    </testcase>
+    <testcase classname="Brands tests Schema validations Schema Verification - Min Char length for name &gt; 1" name="Brands tests Schema validations Schema Verification - Min Char length for name &gt; 1" time="0.355">
+    </testcase>
+    <testcase classname="Brands tests Schema validations Schema Verification - Brand name &gt; 30 chars is not allowed" name="Brands tests Schema validations Schema Verification - Brand name &gt; 30 chars is not allowed" time="0.35">
+    </testcase>
+    <testcase classname="Brands tests Schema validations Schema Verification - Brand description must be string" name="Brands tests Schema validations Schema Verification - Brand description must be string" time="0.346">
+    </testcase>
+    <testcase classname="Brands tests Business Logic Validations Business logic - Duplicated brand name is not allowed" name="Brands tests Business Logic Validations Business logic - Duplicated brand name is not allowed" time="0.451">
+    </testcase>
+    <testcase classname="Brands tests Business Logic Validations Business logic - GET /brand/invalid_id return 404" name="Brands tests Business Logic Validations Business logic - GET /brand/invalid_id return 404" time="0.445">
+    </testcase>
+    <testcase classname="Brands tests Business Logic Validations Business logic - PUT /brand/invalid_brand_id error" name="Brands tests Business Logic Validations Business logic - PUT /brand/invalid_brand_id error" time="0.453">
+    </testcase>
+    <testcase classname="Brands tests Update Brand PUT /brand/:id" name="Brands tests Update Brand PUT /brand/:id" time="0.529">
+    </testcase>
+    <testcase classname="Brands tests Delete Brand DELETE /brand/:id" name="Brands tests Delete Brand DELETE /brand/:id" time="0.352">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 200
+Received: 422
+    at /Users/renansouza/all_my_projects/react-projects/automation-playground/API-test-automation-with-TypeScript/specs/brands.spec.ts:149:32
+    at Generator.next (&lt;anonymous&gt;)
+    at fulfilled (/Users/renansouza/all_my_projects/react-projects/automation-playground/API-test-automation-with-TypeScript/specs/brands.spec.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
+    </testcase>
+    <testcase classname="Brands tests Delete Brand DELETE /brand/invalid_id error" name="Brands tests Delete Brand DELETE /brand/invalid_id error" time="0.425">
     </testcase>
   </testsuite>
 </testsuites>
